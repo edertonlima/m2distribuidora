@@ -34,7 +34,7 @@ if ( ! function_exists( 'storefront_after_content' ) ) {
 			</main><!-- #main -->
 		</div><!-- #primary -->
 
-		<?php do_action( 'storefront_sidebar' );
+		<?php //do_action( 'storefront_sidebar' );
 	}
 }
 
