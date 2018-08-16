@@ -2,12 +2,12 @@
 	<div class="info-footer">
 		<div class="container">
 			
-			<a href="javascript:">
+			<a href="<?php echo get_permalink(get_page_by_path('venda-conosco')); ?>">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/vendas.png" alt="">
 				<span>VENDA PARA<br>EMPRESA</span>
 			</a>
 
-			<a href="javascript:">
+			<a href="<?php echo get_permalink(get_page_by_path('compra-premiada')); ?>">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/compras.png" alt="">
 				<span>COMPRA<br>PREMIADA</span>
 			</a>

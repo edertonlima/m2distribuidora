@@ -91,10 +91,11 @@
 					</li>
 					<li>
 						<form id="form-comprar" action="javascript:">
-							<input type="text" name="cor" id="cor" value="">
-							<input type="text" name="qtd" id="qtd" value="1">
-							<input type="text" name="id" id="id" value="</php echo $post->ID; ?>">
-							<button class="btn-comprar" id="comprar">COMPRAR</button>
+							<input type="hidden" name="cor" id="cor" value="">
+							<input type="hidden" name="qtd" id="qtd" value="1">
+							<input type="hidden" name="id" id="id" value="</php echo $post->ID; ?>">
+							<!--<button class="btn-comprar" id="comprar">COMPRAR</button>-->
+							<a href="<?php the_permalink(); ?>?add-to-cart=<?php echo $post->ID; ?>&quantity=1" class="btn btn-comprar">COMPRAR</a>
 						</form>
 					</li>
 				</ul>

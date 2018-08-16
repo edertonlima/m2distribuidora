@@ -86,6 +86,38 @@ button, input[type='submit'], .btn {
 			background-color: darken($amarelo, 10%);
 		}
 	}
+
+	&.btn-criar-conta {
+		background-color: $azul;
+		color: #ffffff;
+		display: inline-block;
+		width: auto;
+		font-size: .75rem;
+		padding: 0 80px;
+		line-height: 35px;
+		height: 35px;
+
+		&:hover {
+			background-color: darken($azul, 10%);
+		}
+	}
+
+	&.btn-mensagem {
+		background-color: $azul;
+		color: #ffffff;
+		display: inline-block;
+		width: auto;
+		font-size: .65rem;
+		text-transform: uppercase;
+		padding: 0 10px;
+		line-height: 30px;
+		height: 30px;
+		margin-right: 10px;
+
+		&:hover {
+			background-color: darken($azul, 10%);
+		}
+	}
 }
 
 input[type='file']{

@@ -4,9 +4,15 @@
 	overflow: hidden;
 	background-position: center;
 	background-repeat: no-repeat;
+	background-size: cover;
 	background-color: #fff;
 	display: block;
 	@include clear;
+}
+
+.banner-page {
+	@extend .anuncio-topo;
+	height: 270px;
 }
 
 .col-full, .storefront-primary-navigation {

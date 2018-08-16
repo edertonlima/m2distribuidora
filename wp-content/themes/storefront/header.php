@@ -192,7 +192,9 @@
 	<?php } */ ?>
 	<!-- ANALYTICS -->
 
-	<div class="anuncio-topo" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anuncio-top.jpg');"></div>
+	<?php if(is_front_page()){ ?>
+		<div class="anuncio-topo" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anuncio-top.jpg');"></div>
+	<?php } ?>
 
 	<header class="header">
 		<div class="container">
@@ -238,8 +240,13 @@
 
 						<span><strong>
 
-							<?php 
+							<?php
 								global $woocommerce;
+								echo $count = $woocommerce->cart->cart_contents_count;
+							?>
+
+							<?php 
+								/*global $woocommerce;
 								$items_cart = $woocommerce->cart->get_cart();
 								//var_dump($items_cart); 
 
@@ -293,9 +300,9 @@
 						<a href="javascript:">SEU I-PACK</a>
 					</li>
 					<li class="nav-dir">
-						<a href="javascript:">COMPRA PREMIADA</a>
-						<a href="javascript:">VENDA CONOSCO</a>
-						<a href="javascript:">MEUS PEDIDOS</a>
+						<a href="<?php echo get_permalink(get_page_by_path('compra-premiada')); ?>" class="<?php if(is_page('compra-premiada')){ echo 'active'; } ?>">COMPRA PREMIADA</a>
+						<a href="<?php echo get_permalink(get_page_by_path('venda-conosco')); ?>" class="<?php if(is_page('venda-conosco')){ echo 'active'; } ?>">VENDA CONOSCO</a>
+						<a href="<?php echo get_permalink(get_page_by_path('my-account')); ?>" class="<?php if(is_page('my-account')){ echo 'active'; } ?>">MEUS PEDIDOS</a>
 					</li>
 				</ul>
 			</nav>

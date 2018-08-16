@@ -1,5 +1,6 @@
 .banner-home {
 	@extend .anuncio-topo;
+	background-size: cover;
 	height: 300px;
 	margin: 20px 0;
 }
@@ -38,5 +39,42 @@
 		display: inline-block;
 		font-weight: $regular;
 		margin-top: 50px;
+	}
+
+	&.box-info-page {
+		width: 25%;
+		padding: 0;
+
+		.conteudo-info {
+			border: 0;
+
+			img {
+				margin: 0 auto 20px;
+				display: block;
+				height: 115px;
+				max-width: 100%;
+			}
+
+			h3 {
+				font-size: 1.6rem;
+				line-height: 2rem;
+			}
+		}
+	}
+}
+
+.comece-vender {
+	width: 100%;
+	text-align: center;
+	margin-top: 80px;
+	float: left;
+
+	h3 {
+		color: #4a4a4a;
+		font-size: 3rem;
+	}
+
+	a {
+		margin-top: 20px;
 	}
 }

@@ -292,6 +292,10 @@
 			margin-bottom: 15px;
 		}
 	}
+
+	&.cart {
+		
+	}
 }
 
 .ficha-tecnica {
@@ -326,4 +330,73 @@
 /* CATEGORIAS */
 .woocommerce-products-header, .storefront-sorting, .storefront-sorting, .widget-area {
 	display: none;
+}
+
+/* CARRINHO */
+.woocommerce-cart {
+	.entry-header {
+		display: none;
+	}
+}
+
+.table {
+	margin: 50px 0;
+
+	thead {
+		background-color: #f1f1f1;
+	}
+}
+
+.cart-collaterals {
+	background-color: #f1f1f1;
+	padding: 30px;
+	margin: 50px 0;
+
+	.cart_totals {
+		.tit {
+			font-weight: 700;
+			display: block;
+			font-size: 1.125rem;
+			margin: 0 0 20px 0;
+		}
+	}
+
+	.shipping {
+		th, td {
+			padding-bottom: 30px;
+		}
+	}
+
+	.order-total {
+		border-top: 1px solid $cor-txt;
+
+		th, td {
+			padding-top: 30px;
+		}
+
+		th, span {
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			font-weight: $bold;
+		}
+	}
+
+	.btn-comprar {
+		margin: 30px 0;
+	}
+
+	.txt-obs {
+		font-size: .9rem;
+		text-align: center;
+		max-width: 250px;
+		margin: 0 auto;
+		line-height: 1rem;
+	}
+}
+
+.woocommerce-message {
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	background-color: #f8e4a0;
 }

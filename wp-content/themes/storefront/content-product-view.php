@@ -14,6 +14,8 @@
 	//var_dump($product);
 ?>
 
+<?php wc_print_notices(); ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="container prod-det">
@@ -94,7 +96,8 @@
 							<input type="hidden" name="add_cart_cor" id="add_cart_cor" value="">
 							<input type="hidden" name="add_cart_qtd" id="add_cart_qtd" value="1">
 							<input type="hidden" name="add_cart_id" id="add_cart_id" value="<?php echo $post->ID; ?>">
-							<button class="btn-comprar" id="comprar">COMPRAR</button>
+							<a href="<?php the_permalink(); ?>?add-to-cart=<?php echo $post->ID; ?>&quantity=1" class="btn btn-comprar">COMPRAR</a>
+							<!--<button class="btn-comprar" id="comprar">COMPRAR</button>-->
 						</form>
 					</li>
 				</ul>
