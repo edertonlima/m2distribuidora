@@ -1,57 +1,27 @@
 <?php get_header(); ?>
 
-<div class="banner-page" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/venda_mais.jpg');"></div>
+<?php get_template_part( 'slide' ); ?>	
 
 <section class="box-content">
 	<div class="container">
-		
-		<div class="box-info-home box-info-page">
-			<div class="conteudo-info">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-venda-conosco-1.png">
-				<h3>Para cada tipo e tamanho de negócio</h3>
-				<ul>
-					<li>Não importa o tamanho da sua empresa.</li>
-					<li>Todas as contas são grátis.</li>
-					<li>Coloque nossas soluções para trabalhar por seu negócio.</li>
-				</ul>
-			</div>
-		</div>
 
-		<div class="box-info-home box-info-page">
-			<div class="conteudo-info">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-venda-conosco-2.png">
-				<h3>Para cada tipo e tamanho de negócio</h3>
-				<ul>
-					<li>Não importa o tamanho da sua empresa.</li>
-					<li>Todas as contas são grátis.</li>
-					<li>Coloque nossas soluções para trabalhar por seu negócio.</li>
-				</ul>
-			</div>
-		</div>
+		<?php if( have_rows('blocos_pagina') ):
+			while ( have_rows('blocos_pagina') ) : the_row(); ?>
 
-		<div class="box-info-home box-info-page">
-			<div class="conteudo-info">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-venda-conosco-3.png">
-				<h3>Para cada tipo e tamanho de negócio</h3>
-				<ul>
-					<li>Não importa o tamanho da sua empresa.</li>
-					<li>Todas as contas são grátis.</li>
-					<li>Coloque nossas soluções para trabalhar por seu negócio.</li>
-				</ul>
-			</div>
-		</div>
+				<div class="box-info-home box-info-page">
+					<div class="conteudo-info">
+						<img src="<?php the_sub_field('icone'); ?>">
+						<h3><?php the_sub_field('titulo'); ?></h3>
+						<ul>
+							<?php while ( have_rows('descricao') ) : the_row(); ?>
+								<li><?php the_sub_field('texto'); ?></li>
+							<?php endwhile; ?>
+						</ul>
+					</div>
+				</div>
 
-		<div class="box-info-home box-info-page">
-			<div class="conteudo-info">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-venda-conosco-4.png">
-				<h3>Para cada tipo e tamanho de negócio</h3>
-				<ul>
-					<li>Não importa o tamanho da sua empresa.</li>
-					<li>Todas as contas são grátis.</li>
-					<li>Coloque nossas soluções para trabalhar por seu negócio.</li>
-				</ul>
-			</div>
-		</div>
+			<?php endwhile;
+		endif; ?>
 
 		<div class="comece-vender">
 			<h3>Comece a vender já</h3>
@@ -60,6 +30,5 @@
 
 	</div>
 </section>
-
 
 <?php get_footer(); ?>

@@ -175,6 +175,8 @@
 ?>
 <!-- CHAT -->
 
+<?php //wp_head(); ?>
+
 </head>
 <body <?php body_class(); ?>>
 
@@ -192,9 +194,15 @@
 	<?php } */ ?>
 	<!-- ANALYTICS -->
 
-	<?php if(is_front_page()){ ?>
-		<div class="anuncio-topo" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/anuncio-top.jpg');"></div>
-	<?php } ?>
+	<?php if(is_front_page()){ 
+		if(get_field('imagem_banner_topo',28)){ 
+			if(get_field('url_banner_topo',28)){ ?>
+				<a href="<?php the_field('url_banner_topo',28); ?>" class="anuncio-topo" style="background-image: url('<?php the_field('imagem_banner_topo',28); ?>');"></a>
+			<?php }else{ ?>
+				<div class="anuncio-topo" style="background-image: url('<?php the_field('imagem_banner_topo',28); ?>');"></div>
+			<?php } 
+		}
+	} ?>
 
 	<header class="header">
 		<div class="container">
@@ -276,7 +284,7 @@
 
 							<?php
 								foreach ( $categories as $categoria ){ 
-									if($categoria->term_id != $category->term_id ){ ?>
+									//if($categoria->term_id != $category->term_id ){ ?>
 
 										<li>
 											<a href="<?php echo get_term_link($categoria->term_id); ?>" title="<?php echo $categoria->name; ?>">
@@ -284,24 +292,24 @@
 											</a>
 										</li>
 									
-								<?php }
+								<?php //}
 								}
 							?>
 
 						</ul>
 					</li>
 					<li>
-						<a href="javascript:">RECOMENDADOS PARA SEU NEGÓCIO</a>
+						<a href="<?php echo get_home_url(); ?>/product-category/recomendados" class="<?php if(is_category('recomendados')){ echo 'active'; } ?>">RECOMENDADOS PARA SEU NEGÓCIO</a>
 					</li>
 					<li>
-						<a href="javascript:">OFERTAS DO DIA</a>
+						<a href="<?php echo get_home_url(); ?>/product-category/ofertas" class="<?php if(term_exists( 'Uncategorized', 'product-category' )){ echo 'active'; } ?>">OFERTAS DO DIA</a>
 					</li>
 					<li>
-						<a href="javascript:">SEU I-PACK</a>
+						<a href="<?php echo get_permalink(get_page_by_path('my-account')); ?>" class="<?php if(is_page('my-account')){ echo 'active'; } ?>">MINHA CONTA</a>
 					</li>
 					<li class="nav-dir">
-						<a href="<?php echo get_permalink(get_page_by_path('compra-premiada')); ?>" class="<?php if(is_page('compra-premiada')){ echo 'active'; } ?>">COMPRA PREMIADA</a>
-						<a href="<?php echo get_permalink(get_page_by_path('venda-conosco')); ?>" class="<?php if(is_page('venda-conosco')){ echo 'active'; } ?>">VENDA CONOSCO</a>
+						<a href="<?php echo get_permalink(get_page_by_path('fidelidade')); ?>" class="<?php if(is_page('fidelidade')){ echo 'active'; } ?>"><?php echo get_the_title(get_page_by_path('fidelidade')); ?></a>
+						<a href="<?php echo get_permalink(get_page_by_path('venda-conosco')); ?>" class="<?php if(is_page('venda-conosco')){ echo 'active'; } ?>"><?php echo get_the_title(get_page_by_path('venda-conosco')); ?></a>
 						<a href="<?php echo get_permalink(get_page_by_path('my-account')); ?>" class="<?php if(is_page('my-account')){ echo 'active'; } ?>">MEUS PEDIDOS</a>
 					</li>
 				</ul>
