@@ -9,12 +9,40 @@
 
 <?php
 	$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' ); 
+	if($imagem[0]== ''){
+		$imagem = get_template_directory_uri() . '/assets/images/no-image-produto.jpg';
+	}else{
+		$imagem = $imagem[0];
+	}
+
 	$product = wc_get_product( $post->ID ); 
 	//var_dump($post);
 	//var_dump($product);
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<li id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+			
+				<div class="prod-list list-categoria">
+					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+						<span class="img-prod">
+							<img src="<?php echo $imagem; ?>" alt="<?php the_title(); ?>">
+						</span>
+						<span class="titulo"><span><?php the_title(); ?></span></span>
+						
+						<span class="quantidade">200 unidades por caixa</span>
+						<span class="preco">
+							<span class="valor <?php if($product->sale_price != ''){ echo 'sale'; } ?>"><?php echo $product->get_price_html(); ?></span>
+							<span class="det">cada caixa</span>
+						</span>
+						<span class="medida">60mm x 50mm</span>
+					</a>
+				</div>
+			
+
+
+
+	<?php /*
 
 	<div class="container prod-det">
 
@@ -184,22 +212,7 @@
 			</ul>
 		</div>
 
-	</div>
+	</div> */?>
 
-</article><!-- #post-## -->
-
-<script type="text/javascript">
-	alert();
-		jQuery("#comprar").click(function(){
-			var id = jQuery('#id').val();
-			var qtd = jQuery('#qtd').val();
-			var cor = jQuery('#cor').val();
-
-			alert(id);
-
-				/*jQuery.getJSON("<?php echo get_template_directory_uri(); ?>", { add-to-cart:id, quantity:qtd, attribute_color:cor }, function(result){		
-					location.reload();
-				});*/
-		});
-	
-</script>
+	</li>
+</>

@@ -154,6 +154,10 @@ body * {
 	overflow: hidden;
 	padding: 80px 0;
 
+	&.categoria {
+		padding: 35px 0;
+	}
+
 	&.box-page {
 		min-height: 900px;
 	}

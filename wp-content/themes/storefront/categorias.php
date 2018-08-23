@@ -20,7 +20,7 @@
 						if($image_cat){ ?>
 
 							<div class="item">
-								<a href="<?php echo get_permalink($categoria->term_id); ?>" title="<?php echo $categoria->name; ?>">
+								<a href="<?php echo get_term_link($categoria->term_id,'product_cat'); ?>" title="<?php echo $categoria->name; ?>">
 									<span class="img-cat"><span style="background-image: url(<?php echo $image_cat; ?>)"></span></span>
 									<span class="tit-categoria"><?php echo $categoria->name; ?></span>
 								</a>
